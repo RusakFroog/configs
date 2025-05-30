@@ -1,0 +1,15 @@
+https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag
+https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode
+https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next
+https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors
+https://marketplace.visualstudio.com/items?itemName=jgclark.vscode-todo-highlight
+https://marketplace.visualstudio.com/items?itemName=jaspernorth.vscode-pigments
+https://marketplace.visualstudio.com/items?itemName=Vue.volar
+https://marketplace.visualstudio.com/items?itemName=hollowtree.vue-snippets
+https://marketplace.visualstudio.com/items?itemName=Codeium.codeium
