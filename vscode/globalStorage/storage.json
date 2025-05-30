@@ -1,0 +1,121 @@
+{
+    "telemetry.machineId": "2d77d6da1c693defe13af29ec4c088abef3e407538be429f786c1bd67f8582aa",
+    "telemetry.sqmId": "{A255D19B-81AD-40DE-B550-A7A14A9FFA06}",
+    "telemetry.devDeviceId": "5640738d-7fd4-4bf9-91b2-82cc5bd943df",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///e%3A/Git/QuickBet"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///e%3A/Git/majestic/majestic-server/server_src": "__default__profile__",
+            "file:///e%3A/Git/majestic/majestic-server/client_src": "__default__profile__",
+            "file:///e%3A/Git/majestic/majestic-server/utils.code-workspace": "__default__profile__",
+            "file:///e%3A/Git/majestic/majestic-server/src/client": "__default__profile__",
+            "file:///e%3A/Git/majestic/majestic-server": "__default__profile__",
+            "file:///e%3A/Git/majestic/majestic-vue-interfaces": "__default__profile__",
+            "file:///e%3A/Git/majestic/majestic-server/src-shared.code-workspace": "__default__profile__",
+            "file:///e%3A/Git/QuickBet": "__default__profile__",
+            "file:///e%3A/Git/QuickBet/frontend": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#cccccc",
+            "background": "#1e1e1e",
+            "editorBackground": "#1e1e1e",
+            "titleBarBackground": "#3c3c3c",
+            "activityBarBackground": "#333333",
+            "sideBarBackground": "#252526",
+            "statusBarBackground": "#007acc",
+            "statusBarNoFolderBackground": "#68217a"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 448,
+            "auxiliarySideBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///e%3A/Git/QuickBet",
+            "backupPath": "C:\\Users\\sg970\\AppData\\Roaming\\Code\\Backups\\5b47da3f7f04c3f714bde9a73cd594a5",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 0,
+                "width": 2167,
+                "height": 1398
+            }
+        },
+        "openedWindows": []
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 448,
+            "auxiliaryBarWidth": 359,
+            "workspaces": {
+                "4612ef8a05d63dbe732c685e56375a8e": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "d77cecfa0bcda9b8452107de912ec389": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "2bee0d8e99746df638bd688cbec4b2e9": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "f153704fc515de33d46645fefebc9d5c": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "62b51bc2018662e899167f975f282c3b": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "1090eaa82847dbc71c80edde7f0892dd": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "aa7cd032176438590debc3e98e44b417": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "8700424e488c418cecd374ccf9de85a0": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "6539e41d2ef2109430b17905055b51a9": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "cf2e85d8b13e08e33d83dfbaf86a3adc": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "3b5a193b681438ebd603940cbedf0e48": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}

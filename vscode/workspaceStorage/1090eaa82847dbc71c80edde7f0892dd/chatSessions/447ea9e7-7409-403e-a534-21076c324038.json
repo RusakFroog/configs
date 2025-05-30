@@ -1,0 +1,1689 @@
+{
+  "version": 3,
+  "requesterUsername": "RusakFroog",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/91942057",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_1d5c26ee-6636-407e-b3cc-6e17ad979119",
+      "message": {
+        "text": "Разбей этот код на функции",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 26
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 27
+            },
+            "text": "Разбей этот код на функции",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "kind": "file",
+            "id": "vscode.implicit.selection",
+            "name": "file:socket.js",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 1,
+                "startColumn": 1,
+                "endLineNumber": 169,
+                "endColumn": 1,
+                "selectionStartLineNumber": 1,
+                "selectionStartColumn": 1,
+                "positionLineNumber": 169,
+                "positionColumn": 1
+              }
+            },
+            "modelDescription": "User's active selection"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Я разбил метод ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "setupSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 35,
+                "startColumn": 5,
+                "endLineNumber": 35,
+                "endColumn": 5
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "28ff34b1-ed36-48c4-9f29-3e5cd5309a3b"
+        },
+        {
+          "value": " на несколько более мелких приватных методов для лучшей читаемости и организации кода. Вот обновленная версия класса ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 14,
+                "endLineNumber": 9,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "567f2e02-faa3-4963-8bcd-0f3b45ab2a9d"
+        },
+        {
+          "value": ":\n\n````javascript\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import http from 'http';\nimport createLogger from '@logger';\nimport { Server, Socket } from 'socket.io';\nimport { v4 as uuidv4 } from 'uuid';\nimport { TournamentsController } from '../cyberLeague.js';\n\nconst logger = createLogger('MCL-API [Socket]');\n\nexport class TournamentSocket {\n    constructor(tournamentsController, port = 3000) {\n        /** @type {TournamentsController} */\n        this.tournamentsController = tournamentsController;\n\n        /** @type {number} */\n        this.port = port;\n\n        /** @type {Map<string, Socket>} */\n        this.clients = new Map();\n\n        /** @type {http.Server} */\n        this.server = http.createServer();\n\n        /** @type {Server} */\n        this.io = new Server(this.server, {\n            cors: { origin: '*' },\n        });\n\n        this._setupSocketEventHandlers();\n\n        this.server.listen(this.port, () => {\n            logger.info(`Socket server listening on port: ${this.port}`);\n        });\n    }\n\n    _setupSocketEventHandlers() {\n        this.io.on('connection', (socket) => this._handleClientConnection(socket));\n    }\n\n    _handleClientConnection(socket) {\n        logger.info('Client connected:', socket.id);\n\n        if (!this._authenticateClient(socket)) {\n            return; // Authentication failed, client already disconnected\n        }\n\n        this._initializeClientSocketData(socket);\n        this._sendInitialTournamentData(socket);\n        this._registerBaseEventHandlers(socket);\n        this._joinDefaultRooms(socket);\n        this._registerAuthenticatedApiHandlers(socket);\n    }\n\n    _authenticateClient(socket) {\n        const connectToken = socket.handshake.auth.token;\n        const expectedToken = 'pCihMhUJETmawwFe620me2frnLdsHzZifqb'; // Consider moving to config\n\n        if (!connectToken || connectToken !== expectedToken) {\n            logger.info('Unauthorized access attempt:', socket.id, connectToken);\n            socket.disconnect();\n            return false;\n        }\n\n        logger.info('Client authenticated with token:', socket.id);\n        this.clients.set(socket.id, socket);\n        return true;\n    }\n\n    _initializeClientSocketData(socket) {\n        socket.data.user = { id: uuidv4() };\n        socket.data.token = socket.handshake.auth.token;\n    }\n\n    _sendInitialTournamentData(socket) {\n        if (this.tournamentsController.currentTournament) {\n            // Assuming sendInitInfo handles how/where to send the data\n            // If it needs to be sent specifically to this socket, this might need adjustment\n            // e.g., by passing socket or socket.id to sendInitInfo or emitting directly here.\n            this.tournamentsController.sendInitInfo();\n        }\n    }\n\n    _registerBaseEventHandlers(socket) {\n        socket.on('get-all-data', () => {\n            if (!this.tournamentsController.currentTournament) {\n                logger.error(`Client ${socket.id} requested all data, but tournament not started`);\n                socket.emit('error-message', { message: 'Tournament not started' });\n                return;\n            }\n            this.tournamentsController.sendInitInfo();\n        });\n\n        socket.on('disconnect', () => {\n            logger.debug('Client disconnected:', socket.id);\n            this.clients.delete(socket.id);\n        });\n    }\n\n    _isAuthenticated(socketId) {\n        return this.clients.has(socketId);\n    }\n\n    _authGuard(socket, event, handler) {\n        socket.on(event, (...args) => {\n            if (this._isAuthenticated(socket.id)) {\n                handler(...args);\n            } else {\n                logger.warn(`Unauthorized access attempt to event: ${event} from socket ${socket.id}`);\n                socket.emit('unauthorized-event', { event, message: 'Authentication required or session expired.' });\n            }\n        });\n    }\n\n    _joinDefaultRooms(socket) {\n        const rooms = ['default', 'families', 'players', 'top-families', 'mvp-players', 'player-positions'];\n        rooms.forEach(room => socket.join(room));\n        logger.debug(`Socket ${socket.id} joined default rooms: ${rooms.join(', ')}`);\n    }\n\n    _registerAuthenticatedApiHandlers(socket) {\n        this._authGuard(socket, 'get-player-stat', (data) => \n            this._handleGetPlayerStat(socket, data)\n        );\n\n        // Пример для раскомментированных обработчиков подписок:\n        // this._authGuard(socket, 'subscribe-families', () => this._handleSubscribeRoom(socket, 'families'));\n        // this._authGuard(socket, 'subscribe-top-families', () => this._handleSubscribeRoom(socket, 'top-families'));\n        // this._authGuard(socket, 'subscribe-mvp-players', () => this._handleSubscribeRoom(socket, 'mvp-players'));\n        // this._authGuard(socket, 'subscribe-player-positions', (data) => {\n        //     this._handleSubscribeRoom(socket, 'player-positions');\n        //     this.playerPositionsFrequency = data.frequency ?? 10; // This state needs careful management\n        // });\n    }\n\n    // _handleSubscribeRoom(socket, roomName) {\n    //     if (socket.rooms.has(roomName)) {\n    //         logger.info(`Client ${socket.id} unsubscribed from ${roomName}`);\n    //         socket.leave(roomName);\n    //         socket.emit('unsubscribed', { room: roomName });\n    //     } else {\n    //         logger.info(`Client ${socket.id} subscribed to ${roomName}`);\n    //         socket.join(roomName);\n    //         socket.emit('subscribed', { room: roomName });\n    //     }\n    // }\n\n    _handleGetPlayerStat(socket, data) {\n        logger.info(`Client ${socket.id} requested player stat with data:`, data);\n\n        if (!this.tournamentsController.currentTournament) {\n            logger.error(`Client ${socket.id} requested player stat, but no tournament is active.`);\n            socket.emit('player-stat-error', { message: 'No tournament active' });\n            return;\n        }\n\n        if (!data || !data.playerStaticId) {\n            logger.error(`Client ${socket.id} requested player stat without playerStaticId`);\n            socket.emit('player-stat-error', { message: 'playerStaticId is required' });\n            return;\n        }\n\n        const player = this.tournamentsController.currentTournament.players.find(\n            p => p.staticId === data.playerStaticId\n        );\n\n        if (!player) {\n            logger.error(`Client ${socket.id} requested player stat for unknown player: ${data.playerStaticId}`);\n            socket.emit('player-stat-error', { message: `Player with staticId ${data.playerStaticId} not found` });\n            return;\n        }\n\n        socket.emit('player-stat', {\n            staticId: player.staticId,\n            name: player.name,\n            stats: player.stats\n        });\n    }\n\n    emitEvent(eventName, data, room = 'default') {\n        if (room) {\n            this.io.to(room).emit(eventName, data);\n        } else {\n            this.io.emit(eventName, data);\n        }\n        // Consider logging data size or type if it can be very large or sensitive\n        logger.debug(`Event emitted: ${eventName} to room: ${room}`);\n    }\n}\n````",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_9ed04418-3dec-4813-8848-3f0768e5ee55",
+      "result": {
+        "timings": {
+          "firstProgress": 41554,
+          "totalElapsed": 55465
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "import http from 'http';\nimport createLogger from '@logger';\nimport { Server, Socket } from 'socket.io';\nimport { v4 as uuidv4 } from 'uuid';\nimport { TournamentsController } from '../cyberLeague.js';\n\nconst logger = createLogger('MCL-API [Socket]');\n\nexport class TournamentSocket {\n    constructor(tournamentsController, port = 3000) {\n        /** @type {TournamentsController} */\n        this.tournamentsController = tournamentsController;\n\n        /** @type {number} */\n        this.port = port;\n\n        /** @type {Map<string, Socket>} */\n        this.clients = new Map();\n\n        /** @type {http.Server} */\n        this.server = http.createServer();\n\n        /** @type {Server} */\n        this.io = new Server(this.server, {\n            cors: { origin: '*' },\n        });\n\n        this._setupSocketEventHandlers();\n\n        this.server.listen(this.port, () => {\n            logger.info(`Socket server listening on port: ${this.port}`);\n        });\n    }\n\n    _setupSocketEventHandlers() {\n        this.io.on('connection', (socket) => this._handleClientConnection(socket));\n    }\n\n    _handleClientConnection(socket) {\n        logger.info('Client connected:', socket.id);\n\n        if (!this._authenticateClient(socket)) {\n            return; // Authentication failed, client already disconnected\n        }\n\n        this._initializeClientSocketData(socket);\n        this._sendInitialTournamentData(socket);\n        this._registerBaseEventHandlers(socket);\n        this._joinDefaultRooms(socket);\n        this._registerAuthenticatedApiHandlers(socket);\n    }\n\n    _authenticateClient(socket) {\n        const connectToken = socket.handshake.auth.token;\n        const expectedToken = 'pCihMhUJETmawwFe620me2frnLdsHzZifqb'; // Consider moving to config\n\n        if (!connectToken || connectToken !== expectedToken) {\n            logger.info('Unauthorized access attempt:', socket.id, connectToken);\n            socket.disconnect();\n            return false;\n        }\n\n        logger.info('Client authenticated with token:', socket.id);\n        this.clients.set(socket.id, socket);\n        return true;\n    }\n\n    _initializeClientSocketData(socket) {\n        socket.data.user = { id: uuidv4() };\n        socket.data.token = socket.handshake.auth.token;\n    }\n\n    _sendInitialTournamentData(socket) {\n        if (this.tournamentsController.currentTournament) {\n            // Assuming sendInitInfo handles how/where to send the data\n            // If it needs to be sent specifically to this socket, this might need adjustment\n            // e.g., by passing socket or socket.id to sendInitInfo or emitting directly here.\n            this.tournamentsController.sendInitInfo();\n        }\n    }\n\n    _registerBaseEventHandlers(socket) {\n        socket.on('get-all-data', () => {\n            if (!this.tournamentsController.currentTournament) {\n                logger.error(`Client ${socket.id} requested all data, but tournament not started`);\n                socket.emit('error-message', { message: 'Tournament not started' });\n                return;\n            }\n            this.tournamentsController.sendInitInfo();\n        });\n\n        socket.on('disconnect', () => {\n            logger.debug('Client disconnected:', socket.id);\n            this.clients.delete(socket.id);\n        });\n    }\n\n    _isAuthenticated(socketId) {\n        return this.clients.has(socketId);\n    }\n\n    _authGuard(socket, event, handler) {\n        socket.on(event, (...args) => {\n            if (this._isAuthenticated(socket.id)) {\n                handler(...args);\n            } else {\n                logger.warn(`Unauthorized access attempt to event: ${event} from socket ${socket.id}`);\n                socket.emit('unauthorized-event', { event, message: 'Authentication required or session expired.' });\n            }\n        });\n    }\n\n    _joinDefaultRooms(socket) {\n        const rooms = ['default', 'families', 'players', 'top-families', 'mvp-players', 'player-positions'];\n        rooms.forEach(room => socket.join(room));\n        logger.debug(`Socket ${socket.id} joined default rooms: ${rooms.join(', ')}`);\n    }\n\n    _registerAuthenticatedApiHandlers(socket) {\n        this._authGuard(socket, 'get-player-stat', (data) => \n            this._handleGetPlayerStat(socket, data)\n        );\n\n        // Пример для раскомментированных обработчиков подписок:\n        // this._authGuard(socket, 'subscribe-families', () => this._handleSubscribeRoom(socket, 'families'));\n        // this._authGuard(socket, 'subscribe-top-families', () => this._handleSubscribeRoom(socket, 'top-families'));\n        // this._authGuard(socket, 'subscribe-mvp-players', () => this._handleSubscribeRoom(socket, 'mvp-players'));\n        // this._authGuard(socket, 'subscribe-player-positions', (data) => {\n        //     this._handleSubscribeRoom(socket, 'player-positions');\n        //     this.playerPositionsFrequency = data.frequency ?? 10; // This state needs careful management\n        // });\n    }\n\n    // _handleSubscribeRoom(socket, roomName) {\n    //     if (socket.rooms.has(roomName)) {\n    //         logger.info(`Client ${socket.id} unsubscribed from ${roomName}`);\n    //         socket.leave(roomName);\n    //         socket.emit('unsubscribed', { room: roomName });\n    //     } else {\n    //         logger.info(`Client ${socket.id} subscribed to ${roomName}`);\n    //         socket.join(roomName);\n    //         socket.emit('subscribed', { room: roomName });\n    //     }\n    // }\n\n    _handleGetPlayerStat(socket, data) {\n        logger.info(`Client ${socket.id} requested player stat with data:`, data);\n\n        if (!this.tournamentsController.currentTournament) {\n            logger.error(`Client ${socket.id} requested player stat, but no tournament is active.`);\n            socket.emit('player-stat-error', { message: 'No tournament active' });\n            return;\n        }\n\n        if (!data || !data.playerStaticId) {\n            logger.error(`Client ${socket.id} requested player stat without playerStaticId`);\n            socket.emit('player-stat-error', { message: 'playerStaticId is required' });\n            return;\n        }\n\n        const player = this.tournamentsController.currentTournament.players.find(\n            p => p.staticId === data.playerStaticId\n        );\n\n        if (!player) {\n            logger.error(`Client ${socket.id} requested player stat for unknown player: ${data.playerStaticId}`);\n            socket.emit('player-stat-error', { message: `Player with staticId ${data.playerStaticId} not found` });\n            return;\n        }\n\n        socket.emit('player-stat', {\n            staticId: player.staticId,\n            name: player.name,\n            stats: player.stats\n        });\n    }\n\n    emitEvent(eventName, data, room = 'default') {\n        if (room) {\n            this.io.to(room).emit(eventName, data);\n        } else {\n            this.io.emit(eventName, data);\n        }\n        // Consider logging data size or type if it can be very large or sensitive\n        logger.debug(`Event emitted: ${eventName} to room: ${room}`);\n    }\n}\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              },
+              "language": "javascript",
+              "markdownBeforeBlock": "Я разбил метод  на несколько более мелких приватных методов для лучшей читаемости и организации кода. Вот обновленная версия класса :\n\n"
+            }
+          ],
+          "modelMessageId": "a1c35b6b-831d-4bbb-84c3-e63c613e1c97",
+          "responseId": "d4fc5540-016a-491f-bd1b-a9e3e3d1ef2f",
+          "sessionId": "0a3e1bb6-58ab-4c02-9eb7-24b4c5ee9760",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "requester": {
+            "name": "RusakFroog",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/91942057",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "add_feature_to_file",
+            "description": "The user wants to change code in a file that is provided in their request, without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Add a refresh button to the table widget."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+              "_sep": 1,
+              "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+              "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 169,
+              "endColumn": 1
+            }
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1748612656926
+    },
+    {
+      "requestId": "request_82128ec9-1593-4965-adae-5f13b7bff598",
+      "message": {
+        "text": "Перепиши код, и перенеси дублирующуяся логику с Contooler в Tournament и убери излюшнюю логику в Socket чтобы не использовался tournament",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 137
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 138
+            },
+            "text": "Перепиши код, и перенеси дублирующуяся логику с Contooler в Tournament и убери излюшнюю логику в Socket чтобы не использовался tournament",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "kind": "file",
+            "id": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "value": {
+              "$mid": 1,
+              "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+              "_sep": 1,
+              "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+              "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+              "scheme": "file"
+            },
+            "name": "cyberLeague.js",
+            "omittedState": 0
+          },
+          {
+            "kind": "file",
+            "id": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "value": {
+              "$mid": 1,
+              "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+              "_sep": 1,
+              "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+              "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+              "scheme": "file"
+            },
+            "name": "socket.js",
+            "omittedState": 0
+          },
+          {
+            "kind": "file",
+            "id": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "value": {
+              "$mid": 1,
+              "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+              "_sep": 1,
+              "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+              "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+              "scheme": "file"
+            },
+            "name": "tournament.js",
+            "omittedState": 0
+          },
+          {
+            "kind": "file",
+            "id": "vscode.implicit.viewport",
+            "name": "file:player.js",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 1,
+                "startColumn": 1,
+                "endLineNumber": 57,
+                "endColumn": 19
+              }
+            },
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Okay, I will refactor the code for ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": ", ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": ", and ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " (which contains ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 22,
+                "startColumn": 14,
+                "endLineNumber": 22,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "2067753c-07ad-4079-90c0-08b357f62ae1"
+        },
+        {
+          "value": ") to move duplicated logic, decouple ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 14,
+                "endLineNumber": 9,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "008fdf84-53dd-4616-b2bb-9c341578a0a3"
+        },
+        {
+          "value": " from ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 10,
+                "startColumn": 14,
+                "endLineNumber": 10,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "5b4684b9-2986-4932-8bd7-1c034b8b85b9"
+        },
+        {
+          "value": ", and centralize socket operations within ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 22,
+                "startColumn": 14,
+                "endLineNumber": 22,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "32f720b6-f5a4-48dd-8918-fc9bebad917f"
+        },
+        {
+          "value": ".\n\nHere are the proposed changes:\n\n**1. ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " (TournamentSocket)**\nThe ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 14,
+                "endLineNumber": 9,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "82067f19-abc2-48ad-88fb-7491c3232e32"
+        },
+        {
+          "value": " will be made more generic. It will no longer hold a direct reference to a ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 12,
+                "startColumn": 17,
+                "endLineNumber": 12,
+                "endColumn": 17
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "c488a5e4-dbcd-4ec2-93bb-481755153872"
+        },
+        {
+          "value": " instance. Instead, the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 22,
+                "startColumn": 14,
+                "endLineNumber": 22,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "3ba1ef14-d1f4-46da-bfbc-8101f50894fa"
+        },
+        {
+          "value": " will instantiate it and provide callback functions for handling specific client requests that require tournament data.\n\n**2. ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " (Tournament)**\nThe ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 10,
+                "startColumn": 14,
+                "endLineNumber": 10,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "9ac0a247-7b53-46cf-ae7f-32c001cf2534"
+        },
+        {
+          "value": " class will no longer create or directly interact with ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 14,
+                "endLineNumber": 9,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "83854467-f02f-40e7-bed8-caca76fbd522"
+        },
+        {
+          "value": ". It will receive a reference to the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 22,
+                "startColumn": 14,
+                "endLineNumber": 22,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "5b0b429d-1802-478d-b4c0-7bd6dce14847"
+        },
+        {
+          "value": " and use it to notify about events or state changes that need to be broadcasted. Logic previously handled by direct calls to ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "tournamentsController.someSocketRelatedMethod()",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 92,
+                "startColumn": 9,
+                "endLineNumber": 92,
+                "endColumn": 9
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "0fe29bc4-3608-4d51-9e68-a30f36947db9"
+        },
+        {
+          "value": " will now either be internal to ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 10,
+                "startColumn": 14,
+                "endLineNumber": 10,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "d7f3738b-a9ec-43ad-b666-4a8b70da2555"
+        },
+        {
+          "value": " or will call a method on its `controller` instance.\n\n**3. ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " (TournamentsController)**\nThe ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 22,
+                "startColumn": 14,
+                "endLineNumber": 22,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "cc6d9b82-1e73-4d38-9c49-a0cf5c3c627f"
+        },
+        {
+          "value": " will be responsible for creating and managing the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 14,
+                "endLineNumber": 9,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "8210b007-fe13-401a-85ea-973db6b1ee96"
+        },
+        {
+          "value": " instance. It will handle callbacks from the socket (e.g., when a client requests data) and will use the socket to emit events based on actions within the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 10,
+                "startColumn": 14,
+                "endLineNumber": 10,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "61b08e2a-9e7a-4892-a267-8a2e9058db49"
+        },
+        {
+          "value": " or controller itself.\n\n**4. ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " (TournamentPlayer)**\nThe ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "sendPlayerUpdates",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 82,
+                "startColumn": 5,
+                "endLineNumber": 82,
+                "endColumn": 5
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "f8d40cf4-5908-41b6-be08-841ce8540fb9"
+        },
+        {
+          "value": " method will be adjusted to use the singleton ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "tournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 92,
+                "startColumn": 9,
+                "endLineNumber": 92,
+                "endColumn": 9
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "46b277da-7892-454b-a443-58b601d783d8"
+        },
+        {
+          "value": " instance to notify about player updates.\n\nHere's the refactored code:\n\n````javascript\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import http from 'http';\nimport createLogger from '@logger';\nimport { Server, Socket } from 'socket.io';\nimport { v4 as uuidv4 } from 'uuid';\n// Removed: import { TournamentController } from '../cyberLeague.js';\n\nconst logger = createLogger('MCL-API [Socket]');\n\nexport class TournamentSocket {\n    /**\n     * @param {number} port\n     * @param {(socket: Socket) => void} onClientAuthenticatedCallback\n     * @param {(socket: Socket) => void} handleGetAllDataCallback\n     * @param {(socket: Socket, data: any) => void} handleGetPlayerStatCallback\n     */\n    constructor(port = 3000, onClientAuthenticatedCallback, handleGetAllDataCallback, handleGetPlayerStatCallback) {\n        /** @type {number} */\n        this.port = port;\n\n        /** @type {Map<string, Socket>} */\n        this.clients = new Map();\n\n        /** @type {http.Server} */\n        this.server = http.createServer();\n\n        /** @type {Server} */\n        this.io = new Server(this.server, {\n            cors: { origin: '*' },\n        });\n\n        this.onClientAuthenticatedCallback = onClientAuthenticatedCallback;\n        this.handleGetAllDataCallback = handleGetAllDataCallback;\n        this.handleGetPlayerStatCallback = handleGetPlayerStatCallback;\n\n        this._setupSocketEventHandlers();\n\n        this.server.listen(this.port, () => {\n            logger.info(`Socket server listening on port: ${this.port}`);\n        });\n    }\n\n    /**\n     * @param {string} eventName - The name of the event to emit.\n     * @param {object} args - The data to send with the event.\n     * @param {string} [room='default'] - The room to emit the event to.\n     */\n    emitEvent(eventName, args, room = 'default') {\n        if (room) {\n            this.io.to(room).emit(eventName, args);\n        } else {\n            this.io.emit(eventName, args);\n        }\n        logger.debug(`Event emitted: ${eventName} to room: ${room}`);\n    }\n\n    /**\n     * @private\n     */\n    _setupSocketEventHandlers() {\n        this.io.on('connection', (socket) => this._handleClientConnection(socket));\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The newly connected client socket.\n     */\n    _handleClientConnection(socket) {\n        logger.info('Client connected:', socket.id);\n\n        if (!this._authenticateClient(socket)) {\n            return;\n        }\n\n        this._initializeClientSocketData(socket);\n\n        if (this.onClientAuthenticatedCallback) {\n            this.onClientAuthenticatedCallback(socket);\n        }\n\n        this._registerBaseEventHandlers(socket);\n        this._joinDefaultRooms(socket);\n        this._registerAuthenticatedApiHandlers(socket);\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to authenticate.\n     * @returns {boolean} true if authenticated, false otherwise.\n     */\n    _authenticateClient(socket) {\n        const connectToken = socket.handshake.auth.token;\n        const expectedToken = 'pCihMhUJETmawwFe620me2frnLdsHzZifqb'; // Consider moving to config\n\n        if (!connectToken || connectToken !== expectedToken) {\n            socket.disconnect();\n            logger.info('Unauthorized access attempt:', socket.id, connectToken);\n            return false;\n        }\n\n        logger.info('Client authenticated with token:', socket.id);\n        this.clients.set(socket.id, socket);\n        return true;\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to initialize user data for.\n     */\n    _initializeClientSocketData(socket) {\n        socket.data.user = { id: uuidv4() };\n        socket.data.token = socket.handshake.auth.token;\n    }\n\n    // _sendInitialTournamentData removed as controller will handle this\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to register the event handlers for.\n     * @returns {void}\n     */\n    _registerBaseEventHandlers(socket) {\n        socket.on('get-all-data', () => {\n            if (this.handleGetAllDataCallback) {\n                this.handleGetAllDataCallback(socket);\n            } else {\n                logger.error(`Client ${socket.id} requested all data, but no handler is configured.`);\n                socket.emit('error-message', { message: 'Cannot process get-all-data request.' });\n            }\n        });\n\n        socket.on('disconnect', () => {\n            logger.debug('Client disconnected:', socket.id);\n            this.clients.delete(socket.id);\n        });\n    }\n\n    /**\n     * @param {string} socketId - The client's socketId to check.\n     * @returns {boolean} true if the client is authenticated, false otherwise.\n     */\n    _isAuthenticated(socketId) {\n        return this.clients.has(socketId);\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to register the event handler for.\n     * @param {string} event - The event to listen for.\n     * @param {function} handler - The function to call when the event is received.\n     */\n    _authGuard(socket, event, handler) {\n        socket.on(event, (...args) => {\n            if (this._isAuthenticated(socket.id)) {\n                handler(...args);\n            } else {\n                logger.warn(`Unauthorized access attempt to event: ${event} from socket ${socket.id}`);\n                socket.emit('unauthorized-event', { event, message: 'Authentication required or session expired.' });\n            }\n        });\n    }\n\n    _joinDefaultRooms(socket) {\n        const rooms = ['default', 'families', 'players', 'top-families', 'mvp-players', 'player-positions'];\n        rooms.forEach(room => socket.join(room));\n        logger.debug(`Socket ${socket.id} joined default rooms: ${rooms.join(', ')}`);\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket\n     */\n    _registerAuthenticatedApiHandlers(socket) {\n        this._authGuard(socket, 'get-player-stat', (data) => {\n            if (this.handleGetPlayerStatCallback) {\n                this.handleGetPlayerStatCallback(socket, data);\n            } else {\n                logger.error(`Client ${socket.id} requested player stat, but no handler is configured.`);\n                socket.emit('player-stat-error', { message: 'Cannot process get-player-stat request.' });\n            }\n        });\n\n        // ... other authenticated handlers ...\n    }\n\n    // _handleGetPlayerStat removed as its logic will be in the controller via callback\n}\n````\n\n````javascript\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import createLogger from '@logger';\nimport { e } from '@serverAPI';\nimport { v4 as uuidv4 } from 'uuid';\nimport { TournamentPlayer } from './player.js';\nimport { TournamentFamily } from './family.js';\n// Removed: import { TournamentSocket } from './socket.js';\nimport { TournamentsController } from '../cyberLeague.js'; // For type hinting if needed, or direct import if controller is not singleton passed\n\nconst logger = createLogger('MCL-API [Tournament]');\n\nexport class Tournament {\n    /**\n     * @param {TournamentsController} controller\n     * @param {string} name\n     * @param {number} dimension\n     * @param {number} duration\n     * @param {TournamentFamily[]} families\n     * @param {TournamentPlayer[]} players\n     */\n    constructor(controller, name, dimension = 0, duration = 0, families = [], players = []) {\n        /** @type {TournamentsController} */\n        this.controller = controller;\n\n        /** @type {string} */\n        this.id = uuidv4();\n\n        /** @type {string} */\n        this.name = name;\n\n        /** @type {number} */\n        this.date = Date.now();\n\n        /** @type {number} */\n        this.dimension = dimension;\n\n        /** @type {number} */\n        this.duration = duration;\n\n        /** @type {TournamentFamily[]} */\n        this.families = families;\n\n        /** @type {TournamentPlayer[]} */\n        this.players = players;\n\n        /** @type {number} */\n        this.day = 0;\n\n        /** @type {number} */\n        this.round = 0;\n\n        // Removed: this.socket = new TournamentSocket(this, 300);\n\n        this._registerTournamentEventHandlers();\n\n        // Send player positions periodically\n        this.playerPositionInterval = setInterval(() => {\n            this.controller.notifyEvent('player-positions', this.getPlayerPositions(), 'player-positions');\n        }, 500); // Ensure this interval is cleared on tournament end/destroy\n    }\n\n    _registerTournamentEventHandlers() {\n        mp.events.add('playerDeath', this.handlePlayerDeath.bind(this));\n        mp.events.add('weapons.server.playerHit', this.handlePlayerHit.bind(this));\n        mp.events.add('playerQuit', this.handlePlayerQuit.bind(this));\n    }\n\n    // Call this method when the tournament is ended or destroyed\n    cleanupEventHandlersAndIntervals() {\n        mp.events.remove('playerDeath', this.handlePlayerDeath.bind(this));\n        mp.events.remove('weapons.server.playerHit', this.handlePlayerHit.bind(this));\n        mp.events.remove('playerQuit', this.handlePlayerQuit.bind(this));\n        if (this.playerPositionInterval) {\n            clearInterval(this.playerPositionInterval);\n            this.playerPositionInterval = null;\n        }\n    }\n\n    handlePlayerDeath(player, reason, killer) {\n        player.countDeaths = (player.countDeaths ?? 0) + 1;\n\n        if (killer) {\n            killer.countKills = (killer.countKills ?? 0) + 1;\n            this.log('playerDeath', `#${e.user.getStaticId(killer)} убил #${e.user.getStaticId(player)}`);\n\n            if (killer.tournamentPlayer) {\n                killer.tournamentPlayer.family?.sendFamilyUpdates(); // Null check for family\n                killer.tournamentPlayer.sendPlayerUpdates();\n            }\n        } else {\n            this.log('playerDeath', `#${e.user.getStaticId(player)} самоликвидировался`);\n        }\n\n        if (player.tournamentPlayer) {\n            player.tournamentPlayer.isDead = true;\n            player.tournamentPlayer.family?.sendFamilyUpdates(); // Null check for family\n            player.tournamentPlayer.sendPlayerUpdates();\n            this.checkAndProcessFamilyElimination(player.tournamentPlayer.familyId);\n        }\n\n        this.controller.notifyEvent('player-death', {\n            playerStaticId: e.user.getStaticId(player),\n            playerId: player.id, // Assuming player.id is the correct playerId\n            playerFamilyId: player?.tournamentPlayer?.familyId,\n            killerStaticId: killer ? e.user.getStaticId(killer) : null,\n            killerId: killer?.id, // Assuming killer.id is the correct killerId\n            killerFamilyId: killer?.tournamentPlayer?.familyId,\n            weaponKiller: killer?.weapon, // GTA V uses player.weapon, ensure this is correct for MTA\n            reason,\n        });\n    }\n\n    handlePlayerHit(source, target, bodyPart, weaponHash, offset, damage) {\n        if (source && typeof damage === 'number') {\n            source.countDamage = (source.countDamage ?? 0) + damage;\n\n            if (source.tournamentPlayer && source.tournamentPlayer.family) {\n                source.tournamentPlayer.family.sendFamilyUpdates();\n            }\n        }\n    }\n\n    handlePlayerQuit(player) {\n        this.log('playerQuit', `${e.user.getName(player)} #${e.user.getStaticId(player)} вышел с игры`);\n        e.chat.sysadmin(`[MCL] ${e.user.getName(player)} #${e.user.getStaticId(player)} вышел с игры`);\n        this.unregisterPlayer(player); // This will also trigger tournament update via controller\n    }\n\n\n    log(type, text) {\n        logger.debug(`L0G: ${type}: ${text}`);\n        // ... (database logging remains the same)\n        return new Promise(async (resolve, reject) => {\n            const query = e.squel.insert()\n                .into('tournaments_logs')\n                .setFields({\n                    type,\n                    text,\n                })\n                .toParam();\n\n            try {\n                const [data] = await e.sqlPromise.query(query.text, query.values);\n                resolve(data.insertId);\n            } catch (error) {\n                logger.error(`Failed to log to database: ${error}`);\n                reject(error);\n            }\n        });\n    }\n\n    registerFamily(familyId) {\n        const existingFamily = this.families.find(f => f.familyId === familyId);\n        if (existingFamily) {\n            e.chat.sysadmin(`[MCL] Семья ${existingFamily.name} уже зарегистрирована в турнире ${this.name}`);\n            return existingFamily;\n        }\n\n        const newFamily = new TournamentFamily(this, familyId); // Pass tournament instance\n        this.families.push(newFamily);\n        e.chat.sysadmin(`[MCL] Семья ${newFamily.name} зарегистрирована в турнире ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return newFamily;\n    }\n\n    unregisterFamily(familyId) {\n        const familyIndex = this.families.findIndex(f => f.familyId === familyId);\n        if (familyIndex === -1) {\n            logger.warn(`[MCL] Попытка удалить незарегистрированную семью ${familyId} из турнира ${this.name}`);\n            return null;\n        }\n        const [unregisterFamily] = this.families.splice(familyIndex, 1);\n\n        const familyPlayers = this.players.filter(player => player.familyId === familyId);\n        familyPlayers.forEach(player => {\n            if (player.entityPlayer) player.entityPlayer.tournamentPlayer = null;\n        });\n\n        this.players = this.players.filter(player => player.familyId !== familyId);\n\n        e.chat.sysadmin(`[MCL] Семья ${unregisterFamily.name} и все её участники дисквалифицированы из турнира ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return unregisterFamily;\n    }\n\n    registerPlayer(entityPlayer) {\n        if (!mp.players.exists(entityPlayer)) {\n             logger.error(`Ошибка регистрации игрока в турнире ${this.name}: entityPlayer не существует.`);\n             return null;\n        }\n        const playerFamilyId = e.user.getFamily(entityPlayer);\n        if (!this.families.find(family => family.familyId === playerFamilyId)) {\n            e.chat.sysadmin(`[MCL] Ошибка регистрации игрока ${e.user.getName(entityPlayer)} в турнире ${this.name}: семья не зарегистрирована`);\n            return null;\n        }\n\n        if (this.players.some(p => p.staticId === e.user.getStaticId(entityPlayer))) {\n            e.chat.sysadmin(`[MCL] Игрок ${e.user.getName(entityPlayer)} уже зарегистрирован в турнире ${this.name}`);\n            return this.players.find(p => p.staticId === e.user.getStaticId(entityPlayer));\n        }\n\n        const tournamentPlayer = new TournamentPlayer(this, entityPlayer); // Pass tournament instance\n        this.players.push(tournamentPlayer);\n\n        if (tournamentPlayer.family) {\n            tournamentPlayer.family.sendFamilyUpdates();\n        }\n        e.chat.sysadmin(`[MCL] Игрок ${e.user.getName(entityPlayer)} зарегистрирован в турнире ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return tournamentPlayer;\n    }\n\n    unregisterPlayer(entityPlayer) {\n        const staticId = e.user.getStaticId(entityPlayer);\n        const playerIndex = this.players.findIndex(p => p.staticId === staticId);\n\n        if (playerIndex === -1) {\n            logger.error(`Ошибка удаления игрока ${e.user.getName(entityPlayer)} из турнира ${this.name}: игрок не зарегистрирован`);\n            return null;\n        }\n\n        const [tournamentPlayer] = this.players.splice(playerIndex, 1);\n\n        if (tournamentPlayer.family) {\n            tournamentPlayer.family.sendFamilyUpdates();\n        }\n        if (entityPlayer && mp.players.exists(entityPlayer)) {\n            entityPlayer.tournamentPlayer = null;\n        }\n        e.chat.sysadmin(`[MCL] Игрок ${e.user.getName(entityPlayer)} удален из турнира ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return tournamentPlayer;\n    }\n\n    start() {\n        this.dateStart = Date.now();\n        this.log('tournamentStart', `Турнир ${this.name} начат.`);\n        this.controller.notifyTournamentUpdate();\n    }\n\n    end() {\n        this.dateEnd = Date.now();\n        this.log('tournamentEnd', `Турнир ${this.name} завершен.`);\n        this.cleanupEventHandlersAndIntervals(); // Important to clean up\n        this.controller.notifyTournamentUpdate();\n    }\n\n    setRound(round, day) {\n        this.round = round;\n        this.day = day;\n        this.log('setRound', `Турнир ${this.name} установлен раунд ${this.round} день ${this.day}`);\n        this.controller.notifyTournamentUpdate();\n    }\n\n    getPlayerPositions() {\n        return this.players\n            .filter(player => player.entityPlayer && mp.players.exists(player.entityPlayer)) // Ensure player entity exists\n            .map(player => ([\n                player.staticId,\n                player.entityPlayer.position.x,\n                player.entityPlayer.position.y,\n                // player.entityPlayer.position.z, // Consider if Z is needed\n                // player.entityPlayer.heading // Consider if heading is needed\n            ]));\n    }\n\n    checkAndProcessFamilyElimination(familyId) {\n        const family = this.families.find(f => f.familyId === familyId);\n        if (!family) return;\n\n        const alivePlayersInFamily = this.players.filter(p => p.familyId === familyId && !p.isDead && p.entityPlayer && mp.players.exists(p.entityPlayer));\n\n        if (alivePlayersInFamily.length === 0 && family.alivePlayers.length > 0) { // Check if they previously had alive players\n            // Determine place\n            const eliminatedFamiliesCount = this.families.filter(f => f.allPlayersDeadTimestamp !== null).length;\n            const totalFamilies = this.families.length;\n            family.place = totalFamilies - eliminatedFamiliesCount; // Higher place for later elimination\n\n            family.allPlayersDeadTimestamp = Date.now();\n            family.alivePlayers = []; // Update family's internal state\n\n            this.log('familyEliminated', `Семья ${family.name} #${family.familyId} выбывает, место: ${family.place}`);\n            e.chat.sysadmin(`[MCL] Семья ${family.name} выбывает из турнира ${this.name} на ${family.place} месте`);\n\n            this.controller.notifyEvent('family-dead', {\n                familyId: family.familyId,\n                name: family.name,\n                place: family.place,\n                timestamp: family.allPlayersDeadTimestamp,\n            }, 'families');\n            this.controller.notifyTournamentUpdate(); // Update overall tournament info\n        }\n    }\n}\n````\n\n````javascript\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import { e } from '@serverAPI';\nimport { throttle } from 'server_src/utils/lodash'; // Assuming this path is correct\nimport { TournamentSocket } from './models/socket.js';\nimport { Tournament } from './models/tournament.js'; // Uncommented\nimport { TournamentFamily } from './models/family.js';\n\nimport createLogger from '@logger';\n\nconst logger = createLogger('MCL-API [Controller]');\n\nexport class TournamentsController {\n    constructor() {\n        /** @type {TournamentSocket} */\n        this.socket = new TournamentSocket(\n            3000, // Port for the socket server\n            this._handleClientAuthenticated.bind(this),\n            this._handleGetAllDataRequest.bind(this),\n            this._handleGetPlayerStatRequest.bind(this)\n        );\n\n        /** @type {Tournament | null} */\n        this.currentTournament = null;\n\n        // Throttled update functions\n        this.throttledUpdateTopFamilies = throttle(this._performUpdateTopFamilies.bind(this), 5000);\n        this.throttledUpdateMvpPlayers = throttle(this._performUpdateMvpPlayers.bind(this), 5000);\n    }\n\n    /** @private */\n    _handleClientAuthenticated(socket) {\n        logger.info(`Client ${socket.id} authenticated, sending initial data.`);\n        this.sendInitInfoToSocket(socket);\n    }\n\n    /** @private */\n    _handleGetAllDataRequest(socket) {\n        logger.info(`Client ${socket.id} requested all data.`);\n        if (!this.currentTournament) {\n            logger.error(`Client ${socket.id} requested all data, but tournament not started`);\n            socket.emit('error-message', { message: 'Tournament not started' });\n            return;\n        }\n        this.sendInitInfoToSocket(socket);\n    }\n\n    /** @private */\n    _handleGetPlayerStatRequest(socket, data) {\n        logger.info(`Client ${socket.id} requested player stat with data:`, data);\n\n        if (!this.currentTournament) {\n            logger.error(`Client ${socket.id} requested player stat, but no tournament is active.`);\n            socket.emit('player-stat-error', { message: 'No tournament active' });\n            return;\n        }\n\n        if (!data || !data.playerStaticId) {\n            logger.error(`Client ${socket.id} requested player stat without playerStaticId`);\n            socket.emit('player-stat-error', { message: 'playerStaticId is required' });\n            return;\n        }\n\n        const player = this.currentTournament.players.find(p => p.staticId === data.playerStaticId);\n\n        if (!player) {\n            logger.error(`Client ${socket.id} requested player stat for unknown player: ${data.playerStaticId}`);\n            socket.emit('player-stat-error', { message: `Player with staticId ${data.playerStaticId} not found` });\n            return;\n        }\n\n        socket.emit('player-stat', {\n            staticId: player.staticId,\n            name: player.name,\n            stats: player.stats, // Ensure player.stats getter is efficient\n        });\n    }\n\n    createTournament(name, dimension, duration) {\n        if (this.currentTournament) {\n            logger.warn(`Cannot create new tournament \"${name}\", tournament \"${this.currentTournament.name}\" is already active.`);\n            // Optionally, end the current tournament first or return an error\n            // this.currentTournament.end();\n            // this.currentTournament = null;\n            return false;\n        }\n        logger.debug(`Creating tournament: ${name} in dimension ${dimension} for ${duration}sec`);\n        this.currentTournament = new Tournament(this, name, dimension, duration); // Pass controller instance\n        this.sendInitInfo(); // Notify all clients about the new tournament\n        return true;\n    }\n\n    addFamilyToTournament(familyId) {\n        if (!this.currentTournament) return null;\n        return this.currentTournament.registerFamily(+familyId);\n    }\n\n    deleteFamilyFromTournament(familyId) {\n        if (!this.currentTournament) return false;\n        const family = this.currentTournament.unregisterFamily(+familyId);\n        return !!family;\n    }\n\n    addPlayerToTournament(playerEntity) {\n        if (!this.currentTournament) return false;\n        return this.currentTournament.registerPlayer(playerEntity);\n    }\n\n    deletePlayerFromTournament(playerEntity) {\n        if (!this.currentTournament) return false;\n        const player = this.currentTournament.unregisterPlayer(playerEntity);\n        return !!player;\n    }\n\n    getKillsByFamily(familyId) {\n        if (!this.currentTournament) return null;\n        const family = this.currentTournament.families.find(f => f.familyId === +familyId);\n        return family ? family.totalKills : 0;\n    }\n\n    getDeathsByFamily(familyId) {\n        if (!this.currentTournament) return null;\n         const family = this.currentTournament.families.find(f => f.familyId === +familyId);\n        return family ? family.totalDeaths : 0;\n    }\n\n    getDamageByFamily(familyId) {\n        if (!this.currentTournament) return null;\n        const family = this.currentTournament.families.find(f => f.familyId === +familyId);\n        return family ? family.totalDamage : 0;\n    }\n\n    resetAllPlayersStats() {\n        if (!this.currentTournament) {\n            logger.warn('Cannot reset player stats, no active tournament.');\n            return;\n        }\n        mp.players.forEach(playerMp => {\n            if (mp.players.exists(playerMp)) {\n                playerMp.countKills = 0;\n                playerMp.countDeaths = 0;\n                playerMp.countDamage = 0;\n                const tournamentPlayer = this.currentTournament.players.find(p => p.entityPlayer === playerMp);\n                if (tournamentPlayer) {\n                    tournamentPlayer.isDead = false;\n                    tournamentPlayer.sendPlayerUpdates(); // Notify update\n                    if (tournamentPlayer.family) {\n                        tournamentPlayer.family.sendFamilyUpdates(); // Notify update\n                    }\n                }\n            }\n        });\n        this.currentTournament.log('resetAllStats', 'Статистика всех игроков сброшена');\n        this.notifyTournamentUpdate(); // Send updated info\n        logger.info('All player stats have been reset.');\n    }\n\n    startTournament() {\n        if (!this.currentTournament) return false;\n        this.currentTournament.start();\n        return true;\n    }\n\n    endTournament() {\n        if (!this.currentTournament) return false;\n        this.currentTournament.end();\n        // Optionally, clear currentTournament after a delay or when a new one is created\n        // this.currentTournament = null;\n        // this.sendInitInfo(); // To clear data on client side or show tournament ended\n        return true;\n    }\n\n    /**\n     * Notifies connected clients about an event.\n     * @param {string} eventName\n     * @param {any} data\n     * @param {string} [room]\n     */\n    notifyEvent(eventName, data, room) {\n        this.socket.emitEvent(eventName, data, room);\n    }\n\n    /**\n     * Notifies connected clients that the tournament state has been updated.\n     * Usually by sending the full initial info.\n     */\n    notifyTournamentUpdate() {\n        this.sendInitInfo();\n        // Potentially trigger other updates like top families, MVP\n        this.throttledUpdateTopFamilies();\n        this.throttledUpdateMvpPlayers();\n    }\n\n    /** @private */\n    _performUpdateTopFamilies() {\n        if (!this.currentTournament) return;\n        const topFamiliesData = this.getTopFamilies();\n        logger.debug('Updating top families:', topFamiliesData);\n        this.socket.emitEvent('top-families-update', topFamiliesData, 'top-families');\n    }\n\n    getTopFamilies() {\n        if (!this.currentTournament || !this.currentTournament.families) return [];\n        // Sort by place (lower is better), then by kills (higher is better) for tie-breaking if places are not yet set for all\n        return [...this.currentTournament.families]\n            .sort((a, b) => {\n                if (a.place !== null && b.place !== null) return a.place - b.place;\n                if (a.place !== null) return -1; // Families with a place come first\n                if (b.place !== null) return 1;\n                return b.totalKills - a.totalKills; // Fallback to kills if no place\n            })\n            .map(family => ({\n                familyId: family.familyId,\n                name: family.name,\n                place: family.place,\n                kills: family.totalKills, // Send relevant data for display\n                deaths: family.totalDeaths,\n                alive: family.alivePlayers.length\n            }));\n    }\n    \n    /** @private */\n    _performUpdateMvpPlayers() {\n        if (!this.currentTournament) return;\n        const mvpPlayersData = this.getMvpPlayers();\n        logger.debug('Updating MVP players:', mvpPlayersData);\n        this.socket.emitEvent('mvp-players-update', mvpPlayersData, 'mvp-players');\n    }\n\n    getMvpPlayers() {\n        if (!this.currentTournament || !this.currentTournament.players) return [];\n        return [...this.currentTournament.players]\n            .sort((a, b) => b.kills - a.kills) // Simple sort by kills\n            .slice(0, 10) // Example: Top 10 MVP players\n            .map(player => ({\n                staticId: player.staticId,\n                name: player.name,\n                familyName: player.family ? player.family.name : 'N/A',\n                kills: player.kills,\n                deaths: player.deaths,\n                damage: player.damage,\n            }));\n    }\n\n    sendInitInfo() {\n        if (this.currentTournament) {\n            this.socket.emitEvent('init', this._getAllInfo());\n        } else {\n            // If no tournament, send a specific structure indicating that\n            this.socket.emitEvent('init', { tournamentActive: false, message: \"No tournament is currently active.\" });\n        }\n    }\n    \n    sendInitInfoToSocket(socket) {\n        if (this.currentTournament) {\n            socket.emit('init', this._getAllInfo());\n        } else {\n            socket.emit('init', { tournamentActive: false, message: \"No tournament is currently active.\" });\n        }\n    }\n\n    /** @private */\n    _getAllInfo(withoutFamilies = false, withoutPlayers = false) {\n        if (!this.currentTournament) {\n            return { tournamentActive: false };\n        }\n        const result = {\n            tournamentActive: true,\n            id: this.currentTournament.id,\n            name: this.currentTournament.name,\n            date: this.currentTournament.date,\n            dateStart: this.currentTournament.dateStart,\n            dateEnd: this.currentTournament.dateEnd, // Added dateEnd\n            dimension: this.currentTournament.dimension,\n            duration: this.currentTournament.duration,\n            day: this.currentTournament.day,\n            round: this.currentTournament.round,\n        };\n\n        if (!withoutFamilies) {\n            result.families = this.currentTournament.families.map(family => family.getAllFamilyInfo());\n        }\n\n        if (!withoutPlayers) {\n            result.players = this.currentTournament.players.map(player => ({\n                playerId: player.playerId,\n                staticId: player.staticId,\n                familyId: player.familyId,\n                name: player.name,\n                isDead: player.isDead,\n                stats: player.stats,\n            }));\n        }\n        return result;\n    }\n\n    // checkIsAllFamilyPlayersDead logic is now primarily within Tournament.checkAndProcessFamilyElimination\n    // Tournament will call controller.notifyEvent('family-dead', ...)\n}\n\nexport default new TournamentsController();\n````\n\n````javascript\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import createLogger from '@logger';\nimport { e } from '@serverAPI';\nimport { Tournament } from './tournament.js';\nimport tournamentsController from '../cyberLeague.js'; // Import the singleton controller instance\nimport { throttle } from 'server_src/utils/lodash'; // Ensure this path is correct and throttle is available\n\nconst logger = createLogger('MCL-API [Player]');\n\nexport class TournamentPlayer {\n    /**\n     * @param {Tournament} tournament - Tournament instance\n     * @param {PlayerMp} entityPlayer - Player entity from Multi Theft Auto: San Andreas\n     */\n    constructor(tournament, entityPlayer) {\n        if (!entityPlayer || !mp.players.exists(entityPlayer)) {\n            logger.error('TournamentPlayer entityPlayer is not defined or does not exist');\n            // Avoid setting properties if entityPlayer is invalid to prevent errors later\n            this.isValid = false;\n            return;\n        }\n        this.isValid = true;\n\n        /** @type {Tournament} */\n        this.tournament = tournament;\n        this.entityPlayer = entityPlayer;\n\n        this.name = e.user.getName(this.entityPlayer);\n        this.familyId = e.user.getFamily(this.entityPlayer);\n        // Link to the family object within the tournament\n        this.family = this.tournament.families.find(family => family.familyId === this.familyId);\n\n        this.isDead = false;\n\n        // Store a reference to this TournamentPlayer instance on the mp.Player object\n        this.entityPlayer.tournamentPlayer = this;\n    }\n\n    get kills() {\n        return this.entityPlayer?.countKills ?? 0;\n    }\n\n    get deaths() {\n        return this.entityPlayer?.countDeaths ?? 0;\n    }\n\n    get damage() {\n        return this.entityPlayer?.countDamage ?? 0;\n    }\n\n    get playerId() {\n        return this.entityPlayer?.id; // Player's runtime ID in the game server\n    }\n\n    get staticId() {\n        // Assuming e.user.getStaticId can handle a potentially non-existent entityPlayer gracefully\n        // or that constructor ensures entityPlayer is valid.\n        return this.entityPlayer ? e.user.getStaticId(this.entityPlayer) : null;\n    }\n\n    get stats() {\n        if (!this.isValid || !this.entityPlayer || !mp.players.exists(this.entityPlayer)) {\n            return {\n                health: 0, armour: 0, weapon: 0, kills: 0, deaths: 0, damage: 0,\n                medkitAmount: 0, bandageAmount: 0, epinephrineAmount: 0, totalBullets: 0,\n            };\n        }\n        // Ensure mp.inventory and other mp specific functions are available and used correctly\n        const medkitAmount = mp.inventory?.getAmountByItemId(this.entityPlayer, 78) ?? 0;\n        const bandageAmount = mp.inventory?.getAmountByItemId(this.entityPlayer, 240) ?? 0;\n        const epinephrineAmount = mp.inventory?.getAmountByItemId(this.entityPlayer, 252) ?? 0;\n        \n        const bulletItemIds = [172, 171, 38, 39, 37, 253, 282, 254]; // Example item IDs for bullets\n        const totalBullets = bulletItemIds.reduce((prev, itemId) => {\n            return prev + (mp.inventory?.getAmountByItemId(this.entityPlayer, itemId) ?? 0);\n        }, 0);\n\n        return {\n            health: this.entityPlayer.health,\n            armour: this.entityPlayer.armour,\n            weapon: this.entityPlayer.weapon, // currentWeapon might be more appropriate depending on MTA API\n            kills: this.kills,\n            deaths: this.deaths,\n            damage: this.damage,\n            medkitAmount,\n            bandageAmount,\n            epinephrineAmount,\n            totalBullets,\n        };\n    }\n\n    sendPlayerUpdates = throttle(() => {\n        if (!this.isValid) return;\n\n        const playerData = {\n            playerId: this.playerId,\n            staticId: this.staticId,\n            familyId: this.familyId,\n            name: this.name,\n            isDead: this.isDead,\n            stats: this.stats,\n        };\n        // logger.debug('Player updates:', playerData); // Can be verbose\n        tournamentsController.notifyEvent('player-updates', playerData, 'players');\n    }, 1000); // Adjusted throttle to 1 second, 2000ms might be too long for some updates\n}\n````\nThese changes aim to create a clearer separation of concerns, making the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentSocket",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 14,
+                "endLineNumber": 9,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "2a747334-6870-4006-bf8e-df0598b8dfb8"
+        },
+        {
+          "value": " more reusable and centralizing control within the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentsController",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 22,
+                "startColumn": 14,
+                "endLineNumber": 22,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "7c244365-e3d8-49c6-a69f-a1821a7b324c"
+        },
+        {
+          "value": ". Remember to adjust imports and ensure that the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "TournamentFamily",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 6,
+                "startColumn": 14,
+                "endLineNumber": 6,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\family.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/family.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/family.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "841a18f2-891c-4954-8282-f9ce5882b4dd"
+        },
+        {
+          "value": " class (if it has similar update methods) is also updated to use ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "tournamentsController.notifyEvent",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 92,
+                "startColumn": 9,
+                "endLineNumber": 92,
+                "endColumn": 9
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "90b0f7d1-1122-408d-b5d2-ecb4f969465a"
+        },
+        {
+          "value": " or goes through its parent ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 10,
+                "startColumn": 14,
+                "endLineNumber": 10,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "e5c3488c-4592-4b35-aec4-a00435bb1b89"
+        },
+        {
+          "value": " instance. Also, ensure proper cleanup of event listeners and intervals in the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Tournament",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 10,
+                "startColumn": 14,
+                "endLineNumber": 10,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+                "_sep": 1,
+                "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "4c21e31a-ca75-4dd7-acaf-39d2b51a2ddb"
+        },
+        {
+          "value": " class when a tournament ends.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/e:/Git/majestic/majestic-server/server_src/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_3dabacfc-9041-462e-984f-b1d5197cc2d5",
+      "result": {
+        "timings": {
+          "firstProgress": 51494,
+          "totalElapsed": 128733
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "import http from 'http';\nimport createLogger from '@logger';\nimport { Server, Socket } from 'socket.io';\nimport { v4 as uuidv4 } from 'uuid';\n// Removed: import { TournamentController } from '../cyberLeague.js';\n\nconst logger = createLogger('MCL-API [Socket]');\n\nexport class TournamentSocket {\n    /**\n     * @param {number} port\n     * @param {(socket: Socket) => void} onClientAuthenticatedCallback\n     * @param {(socket: Socket) => void} handleGetAllDataCallback\n     * @param {(socket: Socket, data: any) => void} handleGetPlayerStatCallback\n     */\n    constructor(port = 3000, onClientAuthenticatedCallback, handleGetAllDataCallback, handleGetPlayerStatCallback) {\n        /** @type {number} */\n        this.port = port;\n\n        /** @type {Map<string, Socket>} */\n        this.clients = new Map();\n\n        /** @type {http.Server} */\n        this.server = http.createServer();\n\n        /** @type {Server} */\n        this.io = new Server(this.server, {\n            cors: { origin: '*' },\n        });\n\n        this.onClientAuthenticatedCallback = onClientAuthenticatedCallback;\n        this.handleGetAllDataCallback = handleGetAllDataCallback;\n        this.handleGetPlayerStatCallback = handleGetPlayerStatCallback;\n\n        this._setupSocketEventHandlers();\n\n        this.server.listen(this.port, () => {\n            logger.info(`Socket server listening on port: ${this.port}`);\n        });\n    }\n\n    /**\n     * @param {string} eventName - The name of the event to emit.\n     * @param {object} args - The data to send with the event.\n     * @param {string} [room='default'] - The room to emit the event to.\n     */\n    emitEvent(eventName, args, room = 'default') {\n        if (room) {\n            this.io.to(room).emit(eventName, args);\n        } else {\n            this.io.emit(eventName, args);\n        }\n        logger.debug(`Event emitted: ${eventName} to room: ${room}`);\n    }\n\n    /**\n     * @private\n     */\n    _setupSocketEventHandlers() {\n        this.io.on('connection', (socket) => this._handleClientConnection(socket));\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The newly connected client socket.\n     */\n    _handleClientConnection(socket) {\n        logger.info('Client connected:', socket.id);\n\n        if (!this._authenticateClient(socket)) {\n            return;\n        }\n\n        this._initializeClientSocketData(socket);\n\n        if (this.onClientAuthenticatedCallback) {\n            this.onClientAuthenticatedCallback(socket);\n        }\n\n        this._registerBaseEventHandlers(socket);\n        this._joinDefaultRooms(socket);\n        this._registerAuthenticatedApiHandlers(socket);\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to authenticate.\n     * @returns {boolean} true if authenticated, false otherwise.\n     */\n    _authenticateClient(socket) {\n        const connectToken = socket.handshake.auth.token;\n        const expectedToken = 'pCihMhUJETmawwFe620me2frnLdsHzZifqb'; // Consider moving to config\n\n        if (!connectToken || connectToken !== expectedToken) {\n            socket.disconnect();\n            logger.info('Unauthorized access attempt:', socket.id, connectToken);\n            return false;\n        }\n\n        logger.info('Client authenticated with token:', socket.id);\n        this.clients.set(socket.id, socket);\n        return true;\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to initialize user data for.\n     */\n    _initializeClientSocketData(socket) {\n        socket.data.user = { id: uuidv4() };\n        socket.data.token = socket.handshake.auth.token;\n    }\n\n    // _sendInitialTournamentData removed as controller will handle this\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to register the event handlers for.\n     * @returns {void}\n     */\n    _registerBaseEventHandlers(socket) {\n        socket.on('get-all-data', () => {\n            if (this.handleGetAllDataCallback) {\n                this.handleGetAllDataCallback(socket);\n            } else {\n                logger.error(`Client ${socket.id} requested all data, but no handler is configured.`);\n                socket.emit('error-message', { message: 'Cannot process get-all-data request.' });\n            }\n        });\n\n        socket.on('disconnect', () => {\n            logger.debug('Client disconnected:', socket.id);\n            this.clients.delete(socket.id);\n        });\n    }\n\n    /**\n     * @param {string} socketId - The client's socketId to check.\n     * @returns {boolean} true if the client is authenticated, false otherwise.\n     */\n    _isAuthenticated(socketId) {\n        return this.clients.has(socketId);\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket - The client socket to register the event handler for.\n     * @param {string} event - The event to listen for.\n     * @param {function} handler - The function to call when the event is received.\n     */\n    _authGuard(socket, event, handler) {\n        socket.on(event, (...args) => {\n            if (this._isAuthenticated(socket.id)) {\n                handler(...args);\n            } else {\n                logger.warn(`Unauthorized access attempt to event: ${event} from socket ${socket.id}`);\n                socket.emit('unauthorized-event', { event, message: 'Authentication required or session expired.' });\n            }\n        });\n    }\n\n    _joinDefaultRooms(socket) {\n        const rooms = ['default', 'families', 'players', 'top-families', 'mvp-players', 'player-positions'];\n        rooms.forEach(room => socket.join(room));\n        logger.debug(`Socket ${socket.id} joined default rooms: ${rooms.join(', ')}`);\n    }\n\n    /**\n     * @private\n     * @param {Socket} socket\n     */\n    _registerAuthenticatedApiHandlers(socket) {\n        this._authGuard(socket, 'get-player-stat', (data) => {\n            if (this.handleGetPlayerStatCallback) {\n                this.handleGetPlayerStatCallback(socket, data);\n            } else {\n                logger.error(`Client ${socket.id} requested player stat, but no handler is configured.`);\n                socket.emit('player-stat-error', { message: 'Cannot process get-player-stat request.' });\n            }\n        });\n\n        // ... other authenticated handlers ...\n    }\n\n    // _handleGetPlayerStat removed as its logic will be in the controller via callback\n}\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+                "scheme": "file"
+              },
+              "language": "javascript",
+              "markdownBeforeBlock": "Okay, I will refactor the code for , , and  (which contains ) to move duplicated logic, decouple  from , and centralize socket operations within .\n\nHere are the proposed changes:\n\n**1.  (TournamentSocket)**\nThe  will be made more generic. It will no longer hold a direct reference to a  instance. Instead, the  will instantiate it and provide callback functions for handling specific client requests that require tournament data.\n\n**2.  (Tournament)**\nThe  class will no longer create or directly interact with . It will receive a reference to the  and use it to notify about events or state changes that need to be broadcasted. Logic previously handled by direct calls to  will now either be internal to  or will call a method on its `controller` instance.\n\n**3.  (TournamentsController)**\nThe  will be responsible for creating and managing the  instance. It will handle callbacks from the socket (e.g., when a client requests data) and will use the socket to emit events based on actions within the  or controller itself.\n\n**4.  (TournamentPlayer)**\nThe  method will be adjusted to use the singleton  instance to notify about player updates.\n\nHere's the refactored code:\n\n"
+            },
+            {
+              "code": "import createLogger from '@logger';\nimport { e } from '@serverAPI';\nimport { v4 as uuidv4 } from 'uuid';\nimport { TournamentPlayer } from './player.js';\nimport { TournamentFamily } from './family.js';\n// Removed: import { TournamentSocket } from './socket.js';\nimport { TournamentsController } from '../cyberLeague.js'; // For type hinting if needed, or direct import if controller is not singleton passed\n\nconst logger = createLogger('MCL-API [Tournament]');\n\nexport class Tournament {\n    /**\n     * @param {TournamentsController} controller\n     * @param {string} name\n     * @param {number} dimension\n     * @param {number} duration\n     * @param {TournamentFamily[]} families\n     * @param {TournamentPlayer[]} players\n     */\n    constructor(controller, name, dimension = 0, duration = 0, families = [], players = []) {\n        /** @type {TournamentsController} */\n        this.controller = controller;\n\n        /** @type {string} */\n        this.id = uuidv4();\n\n        /** @type {string} */\n        this.name = name;\n\n        /** @type {number} */\n        this.date = Date.now();\n\n        /** @type {number} */\n        this.dimension = dimension;\n\n        /** @type {number} */\n        this.duration = duration;\n\n        /** @type {TournamentFamily[]} */\n        this.families = families;\n\n        /** @type {TournamentPlayer[]} */\n        this.players = players;\n\n        /** @type {number} */\n        this.day = 0;\n\n        /** @type {number} */\n        this.round = 0;\n\n        // Removed: this.socket = new TournamentSocket(this, 300);\n\n        this._registerTournamentEventHandlers();\n\n        // Send player positions periodically\n        this.playerPositionInterval = setInterval(() => {\n            this.controller.notifyEvent('player-positions', this.getPlayerPositions(), 'player-positions');\n        }, 500); // Ensure this interval is cleared on tournament end/destroy\n    }\n\n    _registerTournamentEventHandlers() {\n        mp.events.add('playerDeath', this.handlePlayerDeath.bind(this));\n        mp.events.add('weapons.server.playerHit', this.handlePlayerHit.bind(this));\n        mp.events.add('playerQuit', this.handlePlayerQuit.bind(this));\n    }\n\n    // Call this method when the tournament is ended or destroyed\n    cleanupEventHandlersAndIntervals() {\n        mp.events.remove('playerDeath', this.handlePlayerDeath.bind(this));\n        mp.events.remove('weapons.server.playerHit', this.handlePlayerHit.bind(this));\n        mp.events.remove('playerQuit', this.handlePlayerQuit.bind(this));\n        if (this.playerPositionInterval) {\n            clearInterval(this.playerPositionInterval);\n            this.playerPositionInterval = null;\n        }\n    }\n\n    handlePlayerDeath(player, reason, killer) {\n        player.countDeaths = (player.countDeaths ?? 0) + 1;\n\n        if (killer) {\n            killer.countKills = (killer.countKills ?? 0) + 1;\n            this.log('playerDeath', `#${e.user.getStaticId(killer)} убил #${e.user.getStaticId(player)}`);\n\n            if (killer.tournamentPlayer) {\n                killer.tournamentPlayer.family?.sendFamilyUpdates(); // Null check for family\n                killer.tournamentPlayer.sendPlayerUpdates();\n            }\n        } else {\n            this.log('playerDeath', `#${e.user.getStaticId(player)} самоликвидировался`);\n        }\n\n        if (player.tournamentPlayer) {\n            player.tournamentPlayer.isDead = true;\n            player.tournamentPlayer.family?.sendFamilyUpdates(); // Null check for family\n            player.tournamentPlayer.sendPlayerUpdates();\n            this.checkAndProcessFamilyElimination(player.tournamentPlayer.familyId);\n        }\n\n        this.controller.notifyEvent('player-death', {\n            playerStaticId: e.user.getStaticId(player),\n            playerId: player.id, // Assuming player.id is the correct playerId\n            playerFamilyId: player?.tournamentPlayer?.familyId,\n            killerStaticId: killer ? e.user.getStaticId(killer) : null,\n            killerId: killer?.id, // Assuming killer.id is the correct killerId\n            killerFamilyId: killer?.tournamentPlayer?.familyId,\n            weaponKiller: killer?.weapon, // GTA V uses player.weapon, ensure this is correct for MTA\n            reason,\n        });\n    }\n\n    handlePlayerHit(source, target, bodyPart, weaponHash, offset, damage) {\n        if (source && typeof damage === 'number') {\n            source.countDamage = (source.countDamage ?? 0) + damage;\n\n            if (source.tournamentPlayer && source.tournamentPlayer.family) {\n                source.tournamentPlayer.family.sendFamilyUpdates();\n            }\n        }\n    }\n\n    handlePlayerQuit(player) {\n        this.log('playerQuit', `${e.user.getName(player)} #${e.user.getStaticId(player)} вышел с игры`);\n        e.chat.sysadmin(`[MCL] ${e.user.getName(player)} #${e.user.getStaticId(player)} вышел с игры`);\n        this.unregisterPlayer(player); // This will also trigger tournament update via controller\n    }\n\n\n    log(type, text) {\n        logger.debug(`L0G: ${type}: ${text}`);\n        // ... (database logging remains the same)\n        return new Promise(async (resolve, reject) => {\n            const query = e.squel.insert()\n                .into('tournaments_logs')\n                .setFields({\n                    type,\n                    text,\n                })\n                .toParam();\n\n            try {\n                const [data] = await e.sqlPromise.query(query.text, query.values);\n                resolve(data.insertId);\n            } catch (error) {\n                logger.error(`Failed to log to database: ${error}`);\n                reject(error);\n            }\n        });\n    }\n\n    registerFamily(familyId) {\n        const existingFamily = this.families.find(f => f.familyId === familyId);\n        if (existingFamily) {\n            e.chat.sysadmin(`[MCL] Семья ${existingFamily.name} уже зарегистрирована в турнире ${this.name}`);\n            return existingFamily;\n        }\n\n        const newFamily = new TournamentFamily(this, familyId); // Pass tournament instance\n        this.families.push(newFamily);\n        e.chat.sysadmin(`[MCL] Семья ${newFamily.name} зарегистрирована в турнире ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return newFamily;\n    }\n\n    unregisterFamily(familyId) {\n        const familyIndex = this.families.findIndex(f => f.familyId === familyId);\n        if (familyIndex === -1) {\n            logger.warn(`[MCL] Попытка удалить незарегистрированную семью ${familyId} из турнира ${this.name}`);\n            return null;\n        }\n        const [unregisterFamily] = this.families.splice(familyIndex, 1);\n\n        const familyPlayers = this.players.filter(player => player.familyId === familyId);\n        familyPlayers.forEach(player => {\n            if (player.entityPlayer) player.entityPlayer.tournamentPlayer = null;\n        });\n\n        this.players = this.players.filter(player => player.familyId !== familyId);\n\n        e.chat.sysadmin(`[MCL] Семья ${unregisterFamily.name} и все её участники дисквалифицированы из турнира ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return unregisterFamily;\n    }\n\n    registerPlayer(entityPlayer) {\n        if (!mp.players.exists(entityPlayer)) {\n             logger.error(`Ошибка регистрации игрока в турнире ${this.name}: entityPlayer не существует.`);\n             return null;\n        }\n        const playerFamilyId = e.user.getFamily(entityPlayer);\n        if (!this.families.find(family => family.familyId === playerFamilyId)) {\n            e.chat.sysadmin(`[MCL] Ошибка регистрации игрока ${e.user.getName(entityPlayer)} в турнире ${this.name}: семья не зарегистрирована`);\n            return null;\n        }\n\n        if (this.players.some(p => p.staticId === e.user.getStaticId(entityPlayer))) {\n            e.chat.sysadmin(`[MCL] Игрок ${e.user.getName(entityPlayer)} уже зарегистрирован в турнире ${this.name}`);\n            return this.players.find(p => p.staticId === e.user.getStaticId(entityPlayer));\n        }\n\n        const tournamentPlayer = new TournamentPlayer(this, entityPlayer); // Pass tournament instance\n        this.players.push(tournamentPlayer);\n\n        if (tournamentPlayer.family) {\n            tournamentPlayer.family.sendFamilyUpdates();\n        }\n        e.chat.sysadmin(`[MCL] Игрок ${e.user.getName(entityPlayer)} зарегистрирован в турнире ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return tournamentPlayer;\n    }\n\n    unregisterPlayer(entityPlayer) {\n        const staticId = e.user.getStaticId(entityPlayer);\n        const playerIndex = this.players.findIndex(p => p.staticId === staticId);\n\n        if (playerIndex === -1) {\n            logger.error(`Ошибка удаления игрока ${e.user.getName(entityPlayer)} из турнира ${this.name}: игрок не зарегистрирован`);\n            return null;\n        }\n\n        const [tournamentPlayer] = this.players.splice(playerIndex, 1);\n\n        if (tournamentPlayer.family) {\n            tournamentPlayer.family.sendFamilyUpdates();\n        }\n        if (entityPlayer && mp.players.exists(entityPlayer)) {\n            entityPlayer.tournamentPlayer = null;\n        }\n        e.chat.sysadmin(`[MCL] Игрок ${e.user.getName(entityPlayer)} удален из турнира ${this.name}`);\n        this.controller.notifyTournamentUpdate();\n        return tournamentPlayer;\n    }\n\n    start() {\n        this.dateStart = Date.now();\n        this.log('tournamentStart', `Турнир ${this.name} начат.`);\n        this.controller.notifyTournamentUpdate();\n    }\n\n    end() {\n        this.dateEnd = Date.now();\n        this.log('tournamentEnd', `Турнир ${this.name} завершен.`);\n        this.cleanupEventHandlersAndIntervals(); // Important to clean up\n        this.controller.notifyTournamentUpdate();\n    }\n\n    setRound(round, day) {\n        this.round = round;\n        this.day = day;\n        this.log('setRound', `Турнир ${this.name} установлен раунд ${this.round} день ${this.day}`);\n        this.controller.notifyTournamentUpdate();\n    }\n\n    getPlayerPositions() {\n        return this.players\n            .filter(player => player.entityPlayer && mp.players.exists(player.entityPlayer)) // Ensure player entity exists\n            .map(player => ([\n                player.staticId,\n                player.entityPlayer.position.x,\n                player.entityPlayer.position.y,\n                // player.entityPlayer.position.z, // Consider if Z is needed\n                // player.entityPlayer.heading // Consider if heading is needed\n            ]));\n    }\n\n    checkAndProcessFamilyElimination(familyId) {\n        const family = this.families.find(f => f.familyId === familyId);\n        if (!family) return;\n\n        const alivePlayersInFamily = this.players.filter(p => p.familyId === familyId && !p.isDead && p.entityPlayer && mp.players.exists(p.entityPlayer));\n\n        if (alivePlayersInFamily.length === 0 && family.alivePlayers.length > 0) { // Check if they previously had alive players\n            // Determine place\n            const eliminatedFamiliesCount = this.families.filter(f => f.allPlayersDeadTimestamp !== null).length;\n            const totalFamilies = this.families.length;\n            family.place = totalFamilies - eliminatedFamiliesCount; // Higher place for later elimination\n\n            family.allPlayersDeadTimestamp = Date.now();\n            family.alivePlayers = []; // Update family's internal state\n\n            this.log('familyEliminated', `Семья ${family.name} #${family.familyId} выбывает, место: ${family.place}`);\n            e.chat.sysadmin(`[MCL] Семья ${family.name} выбывает из турнира ${this.name} на ${family.place} месте`);\n\n            this.controller.notifyEvent('family-dead', {\n                familyId: family.familyId,\n                name: family.name,\n                place: family.place,\n                timestamp: family.allPlayersDeadTimestamp,\n            }, 'families');\n            this.controller.notifyTournamentUpdate(); // Update overall tournament info\n        }\n    }\n}\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+                "scheme": "file"
+              },
+              "language": "javascript",
+              "markdownBeforeBlock": "\n"
+            },
+            {
+              "code": "import { e } from '@serverAPI';\nimport { throttle } from 'server_src/utils/lodash'; // Assuming this path is correct\nimport { TournamentSocket } from './models/socket.js';\nimport { Tournament } from './models/tournament.js'; // Uncommented\nimport { TournamentFamily } from './models/family.js';\n\nimport createLogger from '@logger';\n\nconst logger = createLogger('MCL-API [Controller]');\n\nexport class TournamentsController {\n    constructor() {\n        /** @type {TournamentSocket} */\n        this.socket = new TournamentSocket(\n            3000, // Port for the socket server\n            this._handleClientAuthenticated.bind(this),\n            this._handleGetAllDataRequest.bind(this),\n            this._handleGetPlayerStatRequest.bind(this)\n        );\n\n        /** @type {Tournament | null} */\n        this.currentTournament = null;\n\n        // Throttled update functions\n        this.throttledUpdateTopFamilies = throttle(this._performUpdateTopFamilies.bind(this), 5000);\n        this.throttledUpdateMvpPlayers = throttle(this._performUpdateMvpPlayers.bind(this), 5000);\n    }\n\n    /** @private */\n    _handleClientAuthenticated(socket) {\n        logger.info(`Client ${socket.id} authenticated, sending initial data.`);\n        this.sendInitInfoToSocket(socket);\n    }\n\n    /** @private */\n    _handleGetAllDataRequest(socket) {\n        logger.info(`Client ${socket.id} requested all data.`);\n        if (!this.currentTournament) {\n            logger.error(`Client ${socket.id} requested all data, but tournament not started`);\n            socket.emit('error-message', { message: 'Tournament not started' });\n            return;\n        }\n        this.sendInitInfoToSocket(socket);\n    }\n\n    /** @private */\n    _handleGetPlayerStatRequest(socket, data) {\n        logger.info(`Client ${socket.id} requested player stat with data:`, data);\n\n        if (!this.currentTournament) {\n            logger.error(`Client ${socket.id} requested player stat, but no tournament is active.`);\n            socket.emit('player-stat-error', { message: 'No tournament active' });\n            return;\n        }\n\n        if (!data || !data.playerStaticId) {\n            logger.error(`Client ${socket.id} requested player stat without playerStaticId`);\n            socket.emit('player-stat-error', { message: 'playerStaticId is required' });\n            return;\n        }\n\n        const player = this.currentTournament.players.find(p => p.staticId === data.playerStaticId);\n\n        if (!player) {\n            logger.error(`Client ${socket.id} requested player stat for unknown player: ${data.playerStaticId}`);\n            socket.emit('player-stat-error', { message: `Player with staticId ${data.playerStaticId} not found` });\n            return;\n        }\n\n        socket.emit('player-stat', {\n            staticId: player.staticId,\n            name: player.name,\n            stats: player.stats, // Ensure player.stats getter is efficient\n        });\n    }\n\n    createTournament(name, dimension, duration) {\n        if (this.currentTournament) {\n            logger.warn(`Cannot create new tournament \"${name}\", tournament \"${this.currentTournament.name}\" is already active.`);\n            // Optionally, end the current tournament first or return an error\n            // this.currentTournament.end();\n            // this.currentTournament = null;\n            return false;\n        }\n        logger.debug(`Creating tournament: ${name} in dimension ${dimension} for ${duration}sec`);\n        this.currentTournament = new Tournament(this, name, dimension, duration); // Pass controller instance\n        this.sendInitInfo(); // Notify all clients about the new tournament\n        return true;\n    }\n\n    addFamilyToTournament(familyId) {\n        if (!this.currentTournament) return null;\n        return this.currentTournament.registerFamily(+familyId);\n    }\n\n    deleteFamilyFromTournament(familyId) {\n        if (!this.currentTournament) return false;\n        const family = this.currentTournament.unregisterFamily(+familyId);\n        return !!family;\n    }\n\n    addPlayerToTournament(playerEntity) {\n        if (!this.currentTournament) return false;\n        return this.currentTournament.registerPlayer(playerEntity);\n    }\n\n    deletePlayerFromTournament(playerEntity) {\n        if (!this.currentTournament) return false;\n        const player = this.currentTournament.unregisterPlayer(playerEntity);\n        return !!player;\n    }\n\n    getKillsByFamily(familyId) {\n        if (!this.currentTournament) return null;\n        const family = this.currentTournament.families.find(f => f.familyId === +familyId);\n        return family ? family.totalKills : 0;\n    }\n\n    getDeathsByFamily(familyId) {\n        if (!this.currentTournament) return null;\n         const family = this.currentTournament.families.find(f => f.familyId === +familyId);\n        return family ? family.totalDeaths : 0;\n    }\n\n    getDamageByFamily(familyId) {\n        if (!this.currentTournament) return null;\n        const family = this.currentTournament.families.find(f => f.familyId === +familyId);\n        return family ? family.totalDamage : 0;\n    }\n\n    resetAllPlayersStats() {\n        if (!this.currentTournament) {\n            logger.warn('Cannot reset player stats, no active tournament.');\n            return;\n        }\n        mp.players.forEach(playerMp => {\n            if (mp.players.exists(playerMp)) {\n                playerMp.countKills = 0;\n                playerMp.countDeaths = 0;\n                playerMp.countDamage = 0;\n                const tournamentPlayer = this.currentTournament.players.find(p => p.entityPlayer === playerMp);\n                if (tournamentPlayer) {\n                    tournamentPlayer.isDead = false;\n                    tournamentPlayer.sendPlayerUpdates(); // Notify update\n                    if (tournamentPlayer.family) {\n                        tournamentPlayer.family.sendFamilyUpdates(); // Notify update\n                    }\n                }\n            }\n        });\n        this.currentTournament.log('resetAllStats', 'Статистика всех игроков сброшена');\n        this.notifyTournamentUpdate(); // Send updated info\n        logger.info('All player stats have been reset.');\n    }\n\n    startTournament() {\n        if (!this.currentTournament) return false;\n        this.currentTournament.start();\n        return true;\n    }\n\n    endTournament() {\n        if (!this.currentTournament) return false;\n        this.currentTournament.end();\n        // Optionally, clear currentTournament after a delay or when a new one is created\n        // this.currentTournament = null;\n        // this.sendInitInfo(); // To clear data on client side or show tournament ended\n        return true;\n    }\n\n    /**\n     * Notifies connected clients about an event.\n     * @param {string} eventName\n     * @param {any} data\n     * @param {string} [room]\n     */\n    notifyEvent(eventName, data, room) {\n        this.socket.emitEvent(eventName, data, room);\n    }\n\n    /**\n     * Notifies connected clients that the tournament state has been updated.\n     * Usually by sending the full initial info.\n     */\n    notifyTournamentUpdate() {\n        this.sendInitInfo();\n        // Potentially trigger other updates like top families, MVP\n        this.throttledUpdateTopFamilies();\n        this.throttledUpdateMvpPlayers();\n    }\n\n    /** @private */\n    _performUpdateTopFamilies() {\n        if (!this.currentTournament) return;\n        const topFamiliesData = this.getTopFamilies();\n        logger.debug('Updating top families:', topFamiliesData);\n        this.socket.emitEvent('top-families-update', topFamiliesData, 'top-families');\n    }\n\n    getTopFamilies() {\n        if (!this.currentTournament || !this.currentTournament.families) return [];\n        // Sort by place (lower is better), then by kills (higher is better) for tie-breaking if places are not yet set for all\n        return [...this.currentTournament.families]\n            .sort((a, b) => {\n                if (a.place !== null && b.place !== null) return a.place - b.place;\n                if (a.place !== null) return -1; // Families with a place come first\n                if (b.place !== null) return 1;\n                return b.totalKills - a.totalKills; // Fallback to kills if no place\n            })\n            .map(family => ({\n                familyId: family.familyId,\n                name: family.name,\n                place: family.place,\n                kills: family.totalKills, // Send relevant data for display\n                deaths: family.totalDeaths,\n                alive: family.alivePlayers.length\n            }));\n    }\n    \n    /** @private */\n    _performUpdateMvpPlayers() {\n        if (!this.currentTournament) return;\n        const mvpPlayersData = this.getMvpPlayers();\n        logger.debug('Updating MVP players:', mvpPlayersData);\n        this.socket.emitEvent('mvp-players-update', mvpPlayersData, 'mvp-players');\n    }\n\n    getMvpPlayers() {\n        if (!this.currentTournament || !this.currentTournament.players) return [];\n        return [...this.currentTournament.players]\n            .sort((a, b) => b.kills - a.kills) // Simple sort by kills\n            .slice(0, 10) // Example: Top 10 MVP players\n            .map(player => ({\n                staticId: player.staticId,\n                name: player.name,\n                familyName: player.family ? player.family.name : 'N/A',\n                kills: player.kills,\n                deaths: player.deaths,\n                damage: player.damage,\n            }));\n    }\n\n    sendInitInfo() {\n        if (this.currentTournament) {\n            this.socket.emitEvent('init', this._getAllInfo());\n        } else {\n            // If no tournament, send a specific structure indicating that\n            this.socket.emitEvent('init', { tournamentActive: false, message: \"No tournament is currently active.\" });\n        }\n    }\n    \n    sendInitInfoToSocket(socket) {\n        if (this.currentTournament) {\n            socket.emit('init', this._getAllInfo());\n        } else {\n            socket.emit('init', { tournamentActive: false, message: \"No tournament is currently active.\" });\n        }\n    }\n\n    /** @private */\n    _getAllInfo(withoutFamilies = false, withoutPlayers = false) {\n        if (!this.currentTournament) {\n            return { tournamentActive: false };\n        }\n        const result = {\n            tournamentActive: true,\n            id: this.currentTournament.id,\n            name: this.currentTournament.name,\n            date: this.currentTournament.date,\n            dateStart: this.currentTournament.dateStart,\n            dateEnd: this.currentTournament.dateEnd, // Added dateEnd\n            dimension: this.currentTournament.dimension,\n            duration: this.currentTournament.duration,\n            day: this.currentTournament.day,\n            round: this.currentTournament.round,\n        };\n\n        if (!withoutFamilies) {\n            result.families = this.currentTournament.families.map(family => family.getAllFamilyInfo());\n        }\n\n        if (!withoutPlayers) {\n            result.players = this.currentTournament.players.map(player => ({\n                playerId: player.playerId,\n                staticId: player.staticId,\n                familyId: player.familyId,\n                name: player.name,\n                isDead: player.isDead,\n                stats: player.stats,\n            }));\n        }\n        return result;\n    }\n\n    // checkIsAllFamilyPlayersDead logic is now primarily within Tournament.checkAndProcessFamilyElimination\n    // Tournament will call controller.notifyEvent('family-dead', ...)\n}\n\nexport default new TournamentsController();\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+                "scheme": "file"
+              },
+              "language": "javascript",
+              "markdownBeforeBlock": "\n"
+            },
+            {
+              "code": "import createLogger from '@logger';\nimport { e } from '@serverAPI';\nimport { Tournament } from './tournament.js';\nimport tournamentsController from '../cyberLeague.js'; // Import the singleton controller instance\nimport { throttle } from 'server_src/utils/lodash'; // Ensure this path is correct and throttle is available\n\nconst logger = createLogger('MCL-API [Player]');\n\nexport class TournamentPlayer {\n    /**\n     * @param {Tournament} tournament - Tournament instance\n     * @param {PlayerMp} entityPlayer - Player entity from Multi Theft Auto: San Andreas\n     */\n    constructor(tournament, entityPlayer) {\n        if (!entityPlayer || !mp.players.exists(entityPlayer)) {\n            logger.error('TournamentPlayer entityPlayer is not defined or does not exist');\n            // Avoid setting properties if entityPlayer is invalid to prevent errors later\n            this.isValid = false;\n            return;\n        }\n        this.isValid = true;\n\n        /** @type {Tournament} */\n        this.tournament = tournament;\n        this.entityPlayer = entityPlayer;\n\n        this.name = e.user.getName(this.entityPlayer);\n        this.familyId = e.user.getFamily(this.entityPlayer);\n        // Link to the family object within the tournament\n        this.family = this.tournament.families.find(family => family.familyId === this.familyId);\n\n        this.isDead = false;\n\n        // Store a reference to this TournamentPlayer instance on the mp.Player object\n        this.entityPlayer.tournamentPlayer = this;\n    }\n\n    get kills() {\n        return this.entityPlayer?.countKills ?? 0;\n    }\n\n    get deaths() {\n        return this.entityPlayer?.countDeaths ?? 0;\n    }\n\n    get damage() {\n        return this.entityPlayer?.countDamage ?? 0;\n    }\n\n    get playerId() {\n        return this.entityPlayer?.id; // Player's runtime ID in the game server\n    }\n\n    get staticId() {\n        // Assuming e.user.getStaticId can handle a potentially non-existent entityPlayer gracefully\n        // or that constructor ensures entityPlayer is valid.\n        return this.entityPlayer ? e.user.getStaticId(this.entityPlayer) : null;\n    }\n\n    get stats() {\n        if (!this.isValid || !this.entityPlayer || !mp.players.exists(this.entityPlayer)) {\n            return {\n                health: 0, armour: 0, weapon: 0, kills: 0, deaths: 0, damage: 0,\n                medkitAmount: 0, bandageAmount: 0, epinephrineAmount: 0, totalBullets: 0,\n            };\n        }\n        // Ensure mp.inventory and other mp specific functions are available and used correctly\n        const medkitAmount = mp.inventory?.getAmountByItemId(this.entityPlayer, 78) ?? 0;\n        const bandageAmount = mp.inventory?.getAmountByItemId(this.entityPlayer, 240) ?? 0;\n        const epinephrineAmount = mp.inventory?.getAmountByItemId(this.entityPlayer, 252) ?? 0;\n        \n        const bulletItemIds = [172, 171, 38, 39, 37, 253, 282, 254]; // Example item IDs for bullets\n        const totalBullets = bulletItemIds.reduce((prev, itemId) => {\n            return prev + (mp.inventory?.getAmountByItemId(this.entityPlayer, itemId) ?? 0);\n        }, 0);\n\n        return {\n            health: this.entityPlayer.health,\n            armour: this.entityPlayer.armour,\n            weapon: this.entityPlayer.weapon, // currentWeapon might be more appropriate depending on MTA API\n            kills: this.kills,\n            deaths: this.deaths,\n            damage: this.damage,\n            medkitAmount,\n            bandageAmount,\n            epinephrineAmount,\n            totalBullets,\n        };\n    }\n\n    sendPlayerUpdates = throttle(() => {\n        if (!this.isValid) return;\n\n        const playerData = {\n            playerId: this.playerId,\n            staticId: this.staticId,\n            familyId: this.familyId,\n            name: this.name,\n            isDead: this.isDead,\n            stats: this.stats,\n        };\n        // logger.debug('Player updates:', playerData); // Can be verbose\n        tournamentsController.notifyEvent('player-updates', playerData, 'players');\n    }, 1000); // Adjusted throttle to 1 second, 2000ms might be too long for some updates\n}\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+                "scheme": "file"
+              },
+              "language": "javascript",
+              "markdownBeforeBlock": "\n"
+            }
+          ],
+          "modelMessageId": "7f3a5ab8-371e-46a2-a40c-aadea3221399",
+          "responseId": "67abeb2e-f226-45e7-a3e4-58513252589c",
+          "sessionId": "0a3e1bb6-58ab-4c02-9eb7-24b4c5ee9760",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "requester": {
+            "name": "RusakFroog",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/91942057",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "add_feature_to_file",
+            "description": "The user wants to change code in a file that is provided in their request, without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Add a refresh button to the table widget."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\cyberLeague.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/cyberLeague.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\player.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/player.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\socket.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/socket.js",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "e:\\Git\\majestic\\majestic-server\\server_src\\modules\\cyberLeague\\models\\tournament.js",
+            "_sep": 1,
+            "external": "file:///e%3A/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "path": "/e:/Git/majestic/majestic-server/server_src/modules/cyberLeague/models/tournament.js",
+            "scheme": "file"
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1748614178862
+    }
+  ],
+  "sessionId": "447ea9e7-7409-403e-a534-21076c324038",
+  "creationDate": 1748612636694,
+  "isImported": false,
+  "lastMessageDate": 1748614178862,
+  "customTitle": "Refactoring socket.js into smaller functions"
+}
